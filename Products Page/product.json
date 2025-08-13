@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Sony α7R V (body only)",
+    "price": "$4,198.00",
+    "description": "61 MP full‑frame sensor, AI‑enhanced real‑time AF, 8K video—top‑tier stills/video hybrid.",
+    "image": "image1"
+  },
+  {
+    "name": "Sony a7 IV (body only)",
+    "price": "$2,698.00",
+    "description": "33 MP full‑frame hybrid, 10 fps, 4K 60p video, advanced autofocus—versatile all‑rounder.",
+    "image": "image2"
+  },
+  {
+    "name": "Sony a7C II (body only, black)",
+    "price": "$2,398.00",
+    "description": "Compact 33 MP full‑frame with IBIS and improved video—portable powerhouse.",
+    "image": "image3"
+  },
+  {
+    "name": "Sony a7C II (body only, silver)",
+    "price": "$2,398.00",
+    "description": "Same specs as black version, with elegant silver finish.",
+    "image": "image3"
+  },
+  {
+    "name": "Sony α7 III (body only)",
+    "price": "$1,699.99",
+    "description": "24 MP full‑frame staple, excellent low‑light, reliable AF and battery life.",
+    "image": "image1"
+  },
+  {
+    "name": "Sony α7 II (refurbished, body only)",
+    "price": "$599.99",
+    "description": "24 MP full‑frame with 5‑axis IBIS—great value refurbished option.",
+    "image": "image1"
+  },
+  {
+    "name": "Sony A9 III (body only)",
+    "price": "$6,398.00",
+    "description": "Pro-level global‑shutter sensor, ultra‑fast speed—ideal for action and sports.",
+    "image": "image9"
+  },
+  {
+    "name": "Sony a6700 (body only)",
+    "price": "$1,498.00",
+    "description": "26 MP APS‑C sensor, 11 fps, 4K 120p video—great for fast action and hybrid use.",
+    "image": "image6"
+  },
+  {
+    "name": "Sony a6600 (body only)",
+    "price": "$998.00",
+    "description": "24 MP APS‑C, great video features with S‑Log3 and 4K, solid build.",
+    "image": "image6"
+  },
+  {
+    "name": "Sony ZV‑E10 (body only)",
+    "price": "$748.00",
+    "description": "APSC mirrorless for content creators—4K30p, flip screen, lightweight.",
+    "image": "image1"
+  },
+  {
+    "name": "Sony ZV‑E1 (body only)",
+    "price": "$2,198.00",
+    "description": "Full‑frame vlogging powerhouse—12 MP, 4K120p video, creator‑focused features.",
+    "image": "image1"
+  },
+  {
+    "name": "Sony FX2 (Cinema Line body only)",
+    "price": "$2,699.00",
+    "description": "33 MP full‑frame cinema camera, 15‑stop DR, 4K60p up to 13h—all‑in‑body cooling.",
+    "image": "image2"
+  }
+]
