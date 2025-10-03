@@ -1,37 +1,51 @@
 const contactInformation = document.querySelectorAll(".contact-input");
 const form = document.getElementById("contact-form");
-const errorMessage = document.querySelectorAll("#error-text");
+const errorMessage = document.querySelectorAll(".error-text");
+const submit = document.getElementById("sub-btn")
 
-console.log(contactInformation[1]);
+//Footer Newsletter Validation
+const newsLetterInput = document.querySelector(".newsletter-input");
+const footerForm = document.querySelector(".newsletter-form");
+const footerSubmit = document.querySelector(".footer-submit-btn");
+const footerErrorMessage = document.querySelector(".footer-error-text");
 
-
-//event listener for form
+//Event listener for form
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  validateInputs();
+   validateInputs();
 
-  errorMessage.forEach(error, () => {
-    if (!error.value === "") {
-    } else {
-      console.log("Submitted");
-    }
-  });
+
+
+  let errorCheck = ""
+
+  for (let errorMsg of errorMessage){ //Making sure that there are no error messages
+
+    errorCheck += errorMsg.textContent;
+  }
+
+
+  if(errorCheck === ""){ //If there are no error messages, then submit
+    submit.textContent = "Submitted!"
+    submit.style.backgroundColor = "green";
+  }
+
 });
 
-//sets error
+//Sets Error of an input
 const setError = (element, message) => {
   const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector("#error-text");
+  const errorDisplay = inputControl.querySelector(".error-text");
 
   errorDisplay.textContent = message;
   // inputControl.classlist.add('error-text');
   // inputControl.classlist.remove('success-text');
 };
 
-setSuccess = (element) => {
+//Sets success of an input
+const setSuccess = (element) => {
   const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector("#error-text");
+  const errorDisplay = inputControl.querySelector(".error-text");
 
   errorDisplay.textContent = "";
 };
@@ -41,12 +55,13 @@ const isValidEmail = (email) => {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return regex.test(String(email).toLowerCase());
 };
-
+//Validate Input
 const validateInputs = () => {
-  const firstName = contactInformation[0].value.trim();
-  const lastName = contactInformation[1].value.trim();
+  const firstName = contactInformation[0].value.replace(/[^A-Za-z]/g, '').trim(); //This regex removes anything that is not a alphabetical letter which is good since we only want the user's name.
+  const lastName = contactInformation[1].value.replace(/[^A-Za-z]/g, '').trim();
   const emailValue = contactInformation[2].value.trim();
-  const commentValue = contactInformation[3].value.trim(); //haha I used query selector so i'm calling them by index
+  const commentValue = contactInformation[3].value.trim(); //I used query selector so i'm calling them by index
+
 
   //First Name
   if (firstName === "") {
@@ -57,6 +72,7 @@ const validateInputs = () => {
     setError(contactInformation[0], "Name exceeds character limit of 20");
   } else {
     setSuccess(contactInformation[0]);
+    console.log(firstName);
   }
 
   //Last name
@@ -79,47 +95,69 @@ const validateInputs = () => {
     setSuccess(contactInformation[2]);
   }
 
-  if (commentValue.length > 150) {
+
+  //Comment
+  if(commentValue === ""){
+    setError(contactInformation[3], "Enter a comment")
+  }
+  else if (commentValue.length > 150) {
     setError(contactInformation[3], "Exceeds character limit of 150");
-  } else {
+  } else if(commentValue.length < 10){
+     setError(contactInformation[3], "Comment must be more than 10 characters");
+  }
+  
+  else {
     setSuccess(contactInformation[3]);
+  }
+    
+};
+
+
+
+// Validate NewsLetter input
+const footerValidateInputs = () => {
+  const emailValue = newsLetterInput.value.trim();
+
+  if (emailValue === "") {
+    setFooterError(newsLetterInput, "Email is required");
+  } else if (!isValidEmail(emailValue)) {
+    setFooterError(newsLetterInput, "Provide a valid email");
+  } else {
+    setFooterSuccess(newsLetterInput);
   }
 };
 
-//Every input validation
-// contactInformation.forEach(input =>{
-//     input.addEventListener("blur", ()=>{
+// Sets Error of an input
+const setFooterError = (element, message) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".footer-error-text");
+  errorDisplay.textContent = message;
+};
 
-//         const inputVal = [];
-//         let errorText = null;
+// Sets success of an input
+const setFooterSuccess = (element) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".footer-error-text");
+  errorDisplay.textContent = "";
+};
 
-//         //IF THERE IS A VALID ENTRY PUT THE INPUT VALUE INSIDE A ARRAY
-//         if(input.value !== ""){
-//             //console.log("False: No Entry")
-//             inputVal.push(input.value.trim());
-//         }
-//         else { // error message for no entry
-//              console.log("False: No Entry");
-//                 errorText = document.createElement('h5')
-//                 errorText.textContent = 'Input must be more than 1 character'
-//                 const contact = document.querySelector(".contact-section")
-//                 contact.append(errorText);
-//         }
 
-//         //console.log(inputVal)
+//NewsLetter input event listener
+footerForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-//         for(let value of inputVal){
+  footerValidateInputs();
 
-//              if(value === ""){
+  let footerErrorCheck = footerErrorMessage.textContent;
 
-//              }
-//              else{
+  if (footerErrorCheck === "") { // checking for no errors
+    footerSubmit.textContent = "SUBSCRIBED";
+    footerSubmit.style.backgroundColor = "Black";
+  }
+});
 
-//                  console.log("True: Valid String")
-//                 console.log(inputVal)
-//             }
 
-//          }
 
-//     })
-// })
+
+
+

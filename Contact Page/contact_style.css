@@ -125,7 +125,7 @@ button[type="submit"] {
   margin-top: 1rem;
 }
 
-button[type="submit"]:hover {
+#sub-btn:hover {
   background-color: #c04907;
 }
 
@@ -138,18 +138,20 @@ button[type="submit"]:hover {
 
 /* Footer */
 .footer {
-  background-color: #333;
+  background-color: #0e0e0e;
   color: white;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 /* Socials Section */
 .socials-section {
   flex: 1;
+  min-width: 200px;
 }
 
 .socials-content {
@@ -158,30 +160,19 @@ button[type="submit"]:hover {
   gap: 1rem;
 }
 
-.social-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.line {
-  height: 2px;
-  background-color: white;
-  border-radius: 1px;
-}
-
-
-
 .social-icons {
   display: flex;
   gap: 1rem;
 }
 
+.social-icons img{
+  width: 2rem;
+}
+
 .social-icon {
   width: 40px;
   height: 40px;
-  background-color: #666;
+  background-color: #5c5c5c;
   border: 2px solid white;
 }
 
@@ -198,7 +189,9 @@ button[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  min-width: 200px;
 }
 
 .footer-logo {
@@ -218,6 +211,7 @@ button[type="submit"]:hover {
   flex-direction: column;
   align-items: flex-end;
   gap: 1rem;
+  min-width: 200px;
 }
 
 .newsletter-title {
@@ -280,11 +274,49 @@ button[type="submit"]:hover {
   .footer {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    padding: 2rem 1rem;
   }
 
+  .socials-section,
+  .footer-logo-section,
   .newsletter-section {
+    width: 100%;
+    align-items: center;
+  }
+   .social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center; 
+  align-items: center;     
+}
+
+  .newsletter-form {
     align-items: center;
   }
 
+  .socials-title,
+  .newsletter-title {
+    text-align: center;
+  }
+}
+
+
+a {
+  text-decoration: none; 
+  color: inherit;       
+}
+
+a:visited {
+  color: inherit;        
+}
+
+.newsletter-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: #333;
+  color: #ffffff;
+  border-radius: 5px;
 
 }

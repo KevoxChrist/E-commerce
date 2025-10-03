@@ -3,42 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VISI</title>
+    <title>VISI | Film Gear</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Header -->
     <header class="header">
-      <div class="logo">VISI</div>
+      <a href="index.html">
+        <div class="logo">VISI</div>
+      </a>
       <nav class="nav-menu">
-        <a href="Contact Page/contact.html" class="nav-item">CONTACT</a>
+        <a href="Contact Page/contact.html" class="nav-item contact">CONTACT</a>
         <a href="Products Page/product.html" class="nav-item shop">SHOP</a>
       </nav>
     </header>
 
     <!-- Hero Section -->
     <main class="hero">
-      <!--<h1 class="hero-text"></h1>-->
+      
 
+      <!-- Hero img 1 -->
       <section class="img-section">
-        <div class ="img-container">
-          <img src="Hero_Img.svg" alt="Film maker holding a camera" />
+        <picture class="img-container">
+          <source srcset="/Images/Hero_Img_c1.svg" media="(max-width: 625px)" />
+          <source srcset="/Images/Hero_Img_t.svg" media="(max-width: 1300px)" />
+          <img src="/Images/Hero_Img.svg" alt="Film maker holding a camera" />
+        </picture>
+
+
+        <!-- Hero img 2 -->
+        <picture class="img-container">
+          <source srcset="/Images/Hero_img2_m.svg" media="(max-width: 1300px)" />
+          <img src="/Images/Hero_img2.svg" alt="Film maker holding a camera" />
+        </picture>
+        <div class="img-container">
+          <img src="/Images/Frame it (4).svg" alt="Girl holding books" />
         </div>
 
-        <div class ="img-container">
-          <img src="Hero_img2.svg" alt="Film maker holding a camera" />
+        <!-- Hero img 3 -->
+        <picture class="img-container">
+          <!-- <source srcset="Hero_img3_t.svg" media="(max-width: 1050px)"> -->
+
+          <img src="/Images/Hero_img3.svg" alt="Vision, Capture, Relive" />
+        </picture>
+
+
+        <!-- Hero img 4 -->
+        <picture class="img-container">
+          <source srcset="/Images/Hero_img4_m.svg" media="(max-width: 450px)" />
+
+          <img src="/Images/Hero_img4.svg" alt="Story Telling" />
+        </picture>
+
+
+        <!-- Hero img 5 -->
+        <div class="img-container">
+          <img src="/Images/Hero_img5.svg" alt="Black and white long exposure portrait" />
         </div>
 
-        <div class ="img-container">
-          <img src="Hero_img3.svg" alt="Film maker holding a camera" />
+        <!-- Hero img 6 -->
+        <div class="img-container">
+          <img src="/Images/Hero_img6.svg" alt="Black and white street and landscape photo" />
         </div>
 
-        <div class ="img-container">
-          <img src="Hero_img4.svg" alt="Film maker holding a camera" />
-        </div>
 
-        <div class ="img-container">
-          <img src="Hero_img5.svg" alt="Film maker holding a camera" />
+        <!-- Hero img 7 -->
+        <div class="img-container">
+          <img src="/Images/Hero_img7.svg" alt="Three portrait photos" />
         </div>
       </section>
     </main>
@@ -46,17 +77,20 @@
     <!-- Footer -->
     <footer class="footer">
       <!-- Socials Section -->
-      <div class="socials-section">
+      <section class="socials-section">
         <div class="socials-content">
-          <div class="social-lines">
-            
-          </div>
-          <div class="social-icons">
-           
-          </div>
+          
           <div class="socials-title">Socials</div>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/">
+              <img src="Images/Instagram_Glyph_White.svg" alt="Instagram Logo">
+            </a>
+            <a href="https://x.com/?lang=en">
+            <img src="Images/twitter.svg" alt="Twitter Logo">
+            </a>
+          </div>
         </div>
-      </div>
+      </section>
 
       <!-- Center Logo -->
       <div class="footer-logo-section">
@@ -67,12 +101,14 @@
       <!-- Newsletter Section -->
       <div class="newsletter-section">
         <div class="newsletter-title">SUBSCRIBE</div>
-        <form class="newsletter-form">
-          <input type="email" class="newsletter-input" placeholder="" />
-          <button type="submit" class="submit-btn">Submit</button>
+        <form class="newsletter-form" action="/" method="GET">
+          <input type="text" class="newsletter-input" placeholder="" />
+          <button type="submit" class="footer-submit-btn">Submit</button>
+            <div class= "footer-error-text"></div>
         </form>
         <div class="newsletter-description">subscribe to our news letter</div>
       </div>
     </footer>
+    <script src="index.js"></script>
   </body>
 </html>

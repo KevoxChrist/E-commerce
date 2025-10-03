@@ -1,74 +1,93 @@
 [
   {
-    "name": "Sony α7R V (body only)",
-    "price": "$4,198.00",
-    "description": "61 MP full‑frame sensor, AI‑enhanced real‑time AF, 8K video—top‑tier stills/video hybrid.",
-    "image": "image1"
+    "type": "Cine",
+    "name": "Samyang 50mm T1.5",
+    "price": 155,
+    "description": "Smooth focus gears, ideal for low-light shooting and film-style production.",
+    "img": "./Product_Images/samyang1.png"
   },
   {
-    "name": "Sony a7 IV (body only)",
-    "price": "$2,698.00",
-    "description": "33 MP full‑frame hybrid, 10 fps, 4K 60p video, advanced autofocus—versatile all‑rounder.",
-    "image": "image2"
+    "type": "Cine",
+    "name": "Carl Zeiss Jena DDR MC S (Sonnar) 135mm F3.5 Cine Mod",
+    "price": 249,
+    "description": "Professionally cine-modded for Arri PL mount, delivering sharp imagery with smooth rendering and rich color contrast.",
+    "img": "./Product_Images/sonnar.png"
   },
   {
-    "name": "Sony a7C II (body only, black)",
-    "price": "$2,398.00",
-    "description": "Compact 33 MP full‑frame with IBIS and improved video—portable powerhouse.",
-    "image": "image3"
+    "type": "Cine",
+    "name": "Carl Zeiss Jena DDR Tessar 50mm F2.8 Cine Mod",
+    "price": 145,
+    "description": "Renowned for its “Eagle Eye” sharpness, precise detail, gentle vintage character, and a uniquely compact form.",
+    "img": "./Product_Images/tessar.png"
   },
   {
-    "name": "Sony a7C II (body only, silver)",
-    "price": "$2,398.00",
-    "description": "Same specs as black version, with elegant silver finish.",
-    "image": "image3"
+    "type": "Spherical",
+    "name": "Canon FD 50mm f/1.4",
+    "price": 120,
+    "description": "Popular FD prime, sharp stopped down, warm rendering.",
+    "img": "./Product_Images/cannon_sp1.png"
   },
   {
-    "name": "Sony α7 III (body only)",
-    "price": "$1,699.99",
-    "description": "24 MP full‑frame staple, excellent low‑light, reliable AF and battery life.",
-    "image": "image1"
+    "type": "Spherical",
+    "name": "Joseph Petzval 35 f/2.0",
+    "price": 499,
+    "description": "Warm veiling glare and gentle lens flares for a dreamy, vintage-inspired atmosphere.",
+    "img": "./Product_Images/joesph1.jpg"
   },
   {
-    "name": "Sony α7 II (refurbished, body only)",
-    "price": "$599.99",
-    "description": "24 MP full‑frame with 5‑axis IBIS—great value refurbished option.",
-    "image": "image1"
+    "type": "Anamorphic",
+    "name": "LOMO Round-Front 50mm",
+    "price": 3500,
+    "description": "Classic Soviet anamorphic with creamy rendering and oval bokeh.",
+    "img": "./Product_Images/lomo-anamorph1.jpg"
   },
   {
-    "name": "Sony A9 III (body only)",
-    "price": "$6,398.00",
-    "description": "Pro-level global‑shutter sensor, ultra‑fast speed—ideal for action and sports.",
-    "image": "image9"
+    "type": "Anamorphic",
+    "name": "BLAZAR LENS 35mm T1.8 APEX 1.33x",
+    "price": 745,
+    "description": "Autofocus, crisp widescreen visuals, neutral cinematic flares, and real-time eye-tracking.",
+    "img": "./Product_Images/apex1.png"
   },
   {
-    "name": "Sony a6700 (body only)",
-    "price": "$1,498.00",
-    "description": "26 MP APS‑C sensor, 11 fps, 4K 120p video—great for fast action and hybrid use.",
-    "image": "image6"
+    "type": "Anamorphic",
+    "name": "Asahi Super-Takumar 55mm F1.8 Cine Mod",
+    "price": 159,
+    "description": "Razor-sharp detail, rich color tones, and smooth bokeh, this cine-modded Takumar blends vintage character with professional cinema handling.",
+    "img": "./Product_Images/asha1.png"
   },
   {
-    "name": "Sony a6600 (body only)",
-    "price": "$998.00",
-    "description": "24 MP APS‑C, great video features with S‑Log3 and 4K, solid build.",
-    "image": "image6"
+    "type": "Zoom",
+    "name": "Minolta MD 35–70mm f/3.5",
+    "price": 95,
+    "description": "Reliable vintage zoom with macro function, great entry option.",
+    "img": "./Product_Images/minolta_zoom.jpg"
   },
   {
-    "name": "Sony ZV‑E10 (body only)",
-    "price": "$748.00",
-    "description": "APSC mirrorless for content creators—4K30p, flip screen, lightweight.",
-    "image": "image1"
+    "type": "Zoom",
+    "name": "Olympus Zuiko Auto-Zoom 50-90mm f/3.5",
+    "price": 99,
+    "description": "Sharp telephoto reach, ideal for portraits and creative video.",
+    "img": "./Product_Images/olympus2.png"
   },
   {
-    "name": "Sony ZV‑E1 (body only)",
-    "price": "$2,198.00",
-    "description": "Full‑frame vlogging powerhouse—12 MP, 4K120p video, creator‑focused features.",
-    "image": "image1"
+    "type": "Specialty",
+    "name": "Helios-44-2 FF 2/58",
+    "price": 120,
+    "description": "58mm vintage prime with dreamy swirly bokeh.",
+    "img": "./Product_Images/helios1.jpg"
   },
   {
-    "name": "Sony FX2 (Cinema Line body only)",
-    "price": "$2,699.00",
-    "description": "33 MP full‑frame cinema camera, 15‑stop DR, 4K60p up to 13h—all‑in‑body cooling.",
-    "image": "image2"
+    "type": "Specialty",
+    "name": "Minolta Rokkor-PG 58mm f/1.2",
+    "price": 515,
+    "description": "Super-fast vintage prime with creamy bokeh and shallow DOF.",
+    "img": "./Product_Images/Rok1.png"
+  },
+  {
+    "type": "Specialty",
+    "name": "TTArtisan 35mm f/1.4 Lens",
+    "price": 52,
+    "description": "Sonnar optical design, which prioritizes sharpness and low distortion for clear and accurate rendering.",
+    "img": "./Product_Images/artisan.png"
   }
 ]

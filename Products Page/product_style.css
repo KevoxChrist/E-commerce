@@ -9,13 +9,18 @@ body {
   line-height: 1.6;
   width: 100%;
   height: 100vh;
+  background-color: #f1f1f1;
+}
 
-  position: relative;
+main {
+  border: solid 0px purple;
+  background-color: #f1f1f1;
 }
 
 .contact div {
   color: red;
 }
+
 /* Header */
 .header {
   background-color: #e4e2dd;
@@ -53,63 +58,117 @@ body {
   opacity: 0.8;
 }
 
-/* Hero Section */
-.hero {
-  background-color: #e6e6e6;
-  min-height: 70vh;
+#product-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+#product-header img,
+#product-header video {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Category Titles */
+.category-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Product Containers (grid per category) */
+.product-container {
+  padding: 2rem 1rem;
+  border: 0px solid rgb(64, 255, 115);
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container for product cards in a row */
+#cine-products,
+#spherical-products,
+#anamorphic-products,
+#zoom-products,
+#specialty-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: center;
+}
+
+/* Product Cards */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border: 2px solid orange;
+}
+
+.product-card .card {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  background-color: #f8f8f8;
 }
 
-/* Contact Section */
-.contact-section {
-  background-color: white;
-  padding: 3rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+.image-card {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-#contact-header {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #333;
-  font-weight: bold;
-}
-
-#contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.contact {
+.description-info {
+  padding: 1rem;
+  background-color: #e4e2dd;
+  height: 14rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.contact-input {
-  padding: 1rem;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+.product-name {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.contact-input:focus {
-  outline: none;
-  border-color: #e05d09;
+.product-price {
+  font-size: 1.1rem;
+  color: #e05d09;
 }
 
-textarea.contact-input {
-  resize: vertical;
-  min-height: 120px;
-  font-family: inherit;
+.product-description {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.4;
 }
 
 button[type="submit"] {
@@ -125,59 +184,22 @@ button[type="submit"] {
   margin-top: 1rem;
 }
 
-button[type="submit"]:hover {
-  background-color: #c04907;
-}
-
-.error-text {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: 0.25rem;
-  min-height: 1.2rem;
-}
-
-.container-card {
-  padding: 2em;
-
-  /* border: 1px solid rgb(75,82,92);
-    border-radius: 10px;
-    background-color: #222429;*/
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.grid-container {
-  display: grid;
-  /*border: 1px solid red;*/
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 15px;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
-.description-info {
-  width: 500px;
-  height: 200px;
-  background-color: #e4e2dd;
-  backdrop-filter: blur(5px);
-}
-
 /* Footer */
 .footer {
-  background-color: #333;
+  background-color: #0e0e0e;
   color: white;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 /* Socials Section */
 .socials-section {
   flex: 1;
+  min-width: 200px;
 }
 
 .socials-content {
@@ -190,11 +212,14 @@ button[type="submit"]:hover {
   display: flex;
   gap: 1rem;
 }
+.social-icons img{
+  width: 2rem;
+}
 
 .social-icon {
   width: 40px;
   height: 40px;
-  background-color: #666;
+  background-color: #5c5c5c;
   border: 2px solid white;
 }
 
@@ -211,7 +236,9 @@ button[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  min-width: 200px;
 }
 
 .footer-logo {
@@ -231,6 +258,7 @@ button[type="submit"]:hover {
   flex-direction: column;
   align-items: flex-end;
   gap: 1rem;
+  min-width: 200px;
 }
 
 .newsletter-title {
@@ -262,8 +290,8 @@ button[type="submit"]:hover {
 }
 
 .submit-btn:hover {
-  background-color: white;
-  color: #333;
+  background-color:#e05d09;
+  color: #ffffff;
 }
 
 .newsletter-description {
@@ -271,6 +299,7 @@ button[type="submit"]:hover {
   margin-top: 0.5rem;
 }
 
+/* For Tablet screens  */
 /* Responsive Design */
 @media (max-width: 768px) {
   .header {
@@ -293,11 +322,66 @@ button[type="submit"]:hover {
   .footer {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    padding: 2rem 1rem;
   }
 
+  .socials-section,
+  .footer-logo-section,
   .newsletter-section {
+    width: 100%;
     align-items: center;
   }
 
+   .social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center; 
+  align-items: center;     
+}
+  .newsletter-form {
+    align-items: center;
+  }
+
+  .socials-title,
+  .newsletter-title {
+    text-align: center;
+  }
+}
+
+/* For mobile screens*/
+@media (max-width: 600px) {
+  #cine-products,
+  #spherical-products,
+  #anamorphic-products,
+  #zoom-products,
+  #specialty-products {
+    flex-direction: column;
+    align-items: center;
+  }
   
+  .category-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+a {
+  text-decoration: none; 
+  color: inherit;       
+}
+
+a:visited {
+  color: inherit;        
+}
+
+
+.newsletter-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: #333;
+  color: #ffffff;
+  border-radius: 5px;
+
 }
