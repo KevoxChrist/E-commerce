@@ -1,0 +1,54 @@
+/* Header */
+.header {
+  background-color: #e4e2dd00;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e05d09;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-item {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border: 2px solid transparent;
+}
+
+.nav-item.shop {
+  background-color: white;
+  border: 2px solid black;
+}
+
+.nav-item.contact {
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.nav-item:hover {
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,92 @@
+.contact div {
+  color: red;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #e6e6e6;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+#contact-header {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-input {
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: #e05d09;
+}
+
+.contact-input::placeholder {
+  color: #999;
+}
+
+textarea.contact-input {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+#sub-btn:hover {
+  background-color: #c04907;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  min-height: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 1rem;
+  }
+
+  .contact-section {
+    padding: 2rem 1.5rem;
+  }
+
+  #contact-header {
+    font-size: 2rem;
+  }
+}
