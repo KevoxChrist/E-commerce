@@ -1,66 +1,117 @@
-import { useEffect, useState } from "react";
-import Footer from "../components/layout/Footer";
-import "../styles/Products.css";
-import visiVideo from "../assets/product_images/Visi_adv4.mp4";
+import { useState, useEffect } from 'react';
+import '../styles/Products.css';
 
-export default function Products() {
+function Products() {
   const [products, setProducts] = useState([]);
-  const [sort, setSort] = useState("relevancy");
-  const [lensType, setLensType] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [priceSort, setPriceSort] = useState('relevancy');
+  const [typeSort, setTypeSort] = useState('');
 
+  const url = 'http://localhost:5000';
+
+  // Load products on component mount
   useEffect(() => {
     async function loadProducts() {
       try {
-        const response = await fetch("/product.json");
+        const response = await fetch(`${url}/inventory`);
         const data = await response.json();
         setProducts(data);
-      } catch (err) {
-        console.error("Error loading products:", err);
+        setFilteredProducts(data);
+      } catch (error) {
+        console.error('Error loading products:', error);
       }
     }
     loadProducts();
   }, []);
 
-  // ---------- FILTER + SORT ----------
-  const filteredProducts = products
-    .filter((p) => (lensType ? p.type === lensType : true))
-    .filter((p) => {
-      if (sort === "100") return p.price < 100;
-      if (sort === "300") return p.price < 300;
-      return true;
-    })
-    .sort((a, b) => {
-      if (sort === "low") return a.price - b.price;
-      if (sort === "high") return b.price - a.price;
-      return 0;
-    });
+  // Handle filtering and sorting whenever sort options change
+  useEffect(() => {
+    let result = [...products];
 
-  // ---------- GROUP BY CATEGORY ----------
-  const categories = ["Cine", "Anamorphic", "Spherical", "Zoom", "Specialty"];
-  const grouped = categories.map((cat) => ({
-    name: cat,
-    items: filteredProducts.filter((p) => p.type === cat),
-  }));
+    // Apply type filter first
+    if (typeSort && typeSort !== '') {
+      result = result.filter(product => product.type === typeSort);
+    }
+
+    // Apply price sort/filter
+    switch (priceSort) {
+      case 'low':
+        result.sort((a, b) => a.price - b.price);
+        break;
+      case 'high':
+        result.sort((a, b) => b.price - a.price);
+        break;
+      case '100':
+        result = result.filter(product => product.price < 100);
+        break;
+      case '300':
+        result = result.filter(product => product.price < 300);
+        break;
+      case 'relevancy':
+      default:
+        // Keep original order
+        break;
+    }
+
+    setFilteredProducts(result);
+  }, [priceSort, typeSort, products]);
+
+  // Group products by category
+  const groupedProducts = {
+    Cine: filteredProducts.filter(p => p.type === 'Cine'),
+    Anamorphic: filteredProducts.filter(p => p.type === 'Anamorphic'),
+    Spherical: filteredProducts.filter(p => p.type === 'Spherical'),
+    Zoom: filteredProducts.filter(p => p.type === 'Zoom'),
+    Specialty: filteredProducts.filter(p => p.type === 'Specialty')
+  };
+
+  const renderProductCard = (product) => (
+    <div key={product.name} className="product-card">
+      <a className="card" href="/">
+        <img className="image-card" src={product.img} alt={product.name} />
+      </a>
+      <div className="description-info">
+        <h2 className="product-name">{product.name}</h2>
+        <h3 className="product-price">${product.price}</h3>
+        <p className="product-description">{product.description}</p>
+      </div>
+    </div>
+  );
+
+  const renderCategory = (categoryName, categoryProducts, displayName) => {
+    if (categoryProducts.length === 0) return null;
+
+    return (
+      <section className={`${categoryName.toLowerCase()} product-container`}>
+        <h1 className="category-title">{displayName}</h1>
+        <div id={`${categoryName.toLowerCase()}-products`}>
+          {categoryProducts.map(renderProductCard)}
+        </div>
+      </section>
+    );
+  };
 
   return (
-    <main className="products-page">
-
-      {/* VIDEO HEADER */}
+    <main className="hero">
       <section id="product-header">
         <video autoPlay muted loop>
-          <source src={visiVideo} type="video/mp4" />
+          <source src="Product_Images/Visi_adv4.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       </section>
 
       <h1 id="all-products-text">ALL PRODUCTS</h1>
 
-      {/* FILTER NAV */}
       <section className="product-nav">
         <div className="product-filter">
-
           <div className="sort-filter-container">
             <h4>SORT BY</h4>
-            <select value={sort} onChange={(e) => setSort(e.target.value)}>
+            <select 
+              name="Sort By" 
+              className="price-sort"
+              value={priceSort}
+              onChange={(e) => setPriceSort(e.target.value)}
+            >
               <option value="relevancy">---Select---</option>
               <option value="low">Price: Low to High</option>
               <option value="high">Price: High to Low</option>
@@ -71,7 +122,12 @@ export default function Products() {
 
           <div className="sort-filter-container">
             <h4>LENS TYPE</h4>
-            <select value={lensType} onChange={(e) => setLensType(e.target.value)}>
+            <select 
+              name="Lens Type" 
+              className="price-sort"
+              value={typeSort}
+              onChange={(e) => setTypeSort(e.target.value)}
+            >
               <option value="">---Select---</option>
               <option value="Spherical">Spherical</option>
               <option value="Anamorphic">Anamorphic</option>
@@ -80,20 +136,18 @@ export default function Products() {
               <option value="Specialty">Specialty</option>
             </select>
           </div>
-
         </div>
       </section>
 
-      {/* PRODUCT CATEGORIES */}
       <div className="main-content">
-        {grouped.map((cat) =>
-          cat.items.length > 0 ? (
-            <ProductGrid key={cat.name} title={cat.name} products={cat.items} />
-          ) : null
-        )}
+        {renderCategory('Cine', groupedProducts.Cine, 'Cine Lenses')}
+        {renderCategory('Anamorphic', groupedProducts.Anamorphic, 'Anamorphic')}
+        {renderCategory('Spherical', groupedProducts.Spherical, 'Spherical')}
+        {renderCategory('Zoom', groupedProducts.Zoom, 'Zoom')}
+        {renderCategory('Specialty', groupedProducts.Specialty, "Specialty / Collector's Picks")}
       </div>
-
-      <Footer />
     </main>
   );
 }
+
+export default Products;
