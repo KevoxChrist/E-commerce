@@ -1,0 +1,36 @@
+/* Header */
+.header-2 {
+  background-color: #e4e2dd;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e05d09;
+}
+
+.nav-menu-2 {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-item-2 {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border: 2px solid transparent;
+}
+
+.nav-item-2.shop-2 {
+  background-color: white;
+  border: 2px solid black;
+}
+
+.nav-item-2:hover {
+  opacity: 0.8;
+}

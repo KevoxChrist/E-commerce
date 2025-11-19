@@ -145,7 +145,7 @@ main {
   gap: 0.5rem;
 }
 
-/* .product-name {
+.product-name {
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -159,7 +159,7 @@ main {
   font-size: 0.9rem;
   color: #444;
   line-height: 1.4;
-} */
+}
 
 
 /* For Tablet screens  */
@@ -170,7 +170,9 @@ main {
     gap: 1rem;
   }
 
-  
+  .hero {
+    padding: 0rem;
+  }
 
   .contact-section {
     padding: 2rem 1.5rem;

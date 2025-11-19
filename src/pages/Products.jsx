@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import ProductCard from '../components/ProductCard';
+import HeaderTwo from '../components/Header2';
 import '../styles/Products.css';
 
 function Products() {
@@ -7,13 +9,11 @@ function Products() {
   const [priceSort, setPriceSort] = useState('relevancy');
   const [typeSort, setTypeSort] = useState('');
 
-  const url = 'http://localhost:5000';
-
   // Load products on component mount
   useEffect(() => {
     async function loadProducts() {
       try {
-        const response = await fetch(`${url}/inventory`);
+        const response = await fetch('./product.json');
         const data = await response.json();
         setProducts(data);
         setFilteredProducts(data);
@@ -66,16 +66,7 @@ function Products() {
   };
 
   const renderProductCard = (product) => (
-    <div key={product.name} className="product-card">
-      <a className="card" href="/">
-        <img className="image-card" src={product.img} alt={product.name} />
-      </a>
-      <div className="description-info">
-        <h2 className="product-name">{product.name}</h2>
-        <h3 className="product-price">${product.price}</h3>
-        <p className="product-description">{product.description}</p>
-      </div>
-    </div>
+    <ProductCard key={product.name} product={product} />
   );
 
   const renderCategory = (categoryName, categoryProducts, displayName) => {
@@ -92,8 +83,10 @@ function Products() {
   };
 
   return (
-    <main className="hero">
-      <section id="product-header">
+    <>
+      <HeaderTwo />
+      <main className="hero">
+        <section id="product-header">
         <video autoPlay muted loop>
           <source src="Product_Images/Visi_adv4.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -146,7 +139,8 @@ function Products() {
         {renderCategory('Zoom', groupedProducts.Zoom, 'Zoom')}
         {renderCategory('Specialty', groupedProducts.Specialty, "Specialty / Collector's Picks")}
       </div>
-    </main>
+      </main>
+    </>
   );
 }
 

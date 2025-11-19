@@ -1,13 +1,40 @@
 import React, { useRef, useState } from 'react';
 // import HomeProductCard from '../components/HomeProductCard';
+import Header from '../components/Header';
 import '../styles/Home.css';
 
 
 function Home() {
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const totalSlides = 6;
+
+  const scrollNext = (e) => {
+    e.preventDefault();
+    const nextSlide = currentSlide >= totalSlides ? 1 : currentSlide + 1;
+    setCurrentSlide(nextSlide);
+    document.getElementById(`slide${nextSlide}`).scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'nearest', 
+      inline: 'start' 
+    });
+  };
+
+  const scrollPrev = (e) => {
+    e.preventDefault();
+    const prevSlide = currentSlide <= 1 ? totalSlides : currentSlide - 1;
+    setCurrentSlide(prevSlide);
+    document.getElementById(`slide${prevSlide}`).scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'nearest', 
+      inline: 'start' 
+    });
+  };
   
   return(
-    // <!-- Hero Section -->
-    <main className="hp-hero">
+    <>
+      <Header />
+      {/* <!-- Hero Section --> */}
+      <main className="hp-hero">
 
  <section className="img-section">
       {/* <!-- Hero img 8  --> */}
@@ -102,16 +129,16 @@ function Home() {
             </div>
 
             {/* <!-- Navigation Buttons --> */}
-            <a href="#slide1" className="slider-btn slider-btn-left" aria-label="Previous">
+            <button onClick={scrollPrev} className="slider-btn slider-btn-left" aria-label="Previous">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
-            </a>
-            <a href="#slide6" className="slider-btn slider-btn-right" aria-label="Next">
+            </button>
+            <button onClick={scrollNext} className="slider-btn slider-btn-right" aria-label="Next">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
-            </a>
+            </button>
           </div>
 
 
@@ -231,7 +258,7 @@ function Home() {
       </section>
 
     </main>
-
+    </>
   )
 }
 

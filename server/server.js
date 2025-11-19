@@ -24,6 +24,7 @@ app.get('/inventory', async (req, res) => {
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, "..", "dist")));
 // Catch-all route to serve the React app for client-side routing
+
 app.get("/*splat", (req, res) => {
     res.sendFile(path.join(__dirname, "..", "dist", "index.html"));
 });
