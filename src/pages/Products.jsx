@@ -9,11 +9,13 @@ function Products() {
   const [priceSort, setPriceSort] = useState('relevancy');
   const [typeSort, setTypeSort] = useState('');
 
+  const url = 'http://localhost:5000';
+
   // Load products on component mount
   useEffect(() => {
     async function loadProducts() {
       try {
-        const response = await fetch('./product.json');
+        const response = await fetch(`${url}/inventory`);
         const data = await response.json();
         setProducts(data);
         setFilteredProducts(data);
